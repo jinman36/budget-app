@@ -2,6 +2,8 @@ import React from 'react'
 import Header from './components/Header'
 import Balance from './components/Balance'
 import AddTransaction from './components/AddTransaction'
+import IncomeListed from './components/IncomeListed'
+import ExpenseList from './components/ExpenseList'
 import './App.css'
 
 const App = () => {
@@ -11,6 +13,8 @@ const App = () => {
         <Header />
         <Balance />
         <AddTransaction />
+        <IncomeListed />
+        <ExpenseList />
       </div>
     </div>
   )
