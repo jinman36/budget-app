@@ -4,19 +4,22 @@ import Balance from './components/Balance'
 import AddTransaction from './components/AddTransaction'
 import IncomeListed from './components/IncomeListed'
 import ExpenseList from './components/ExpenseList'
+import { GlobalContextProvider } from './context/GlobalState'
 import './App.css'
 
 const App = () => {
   return (
-    <div className='container'>
-      <div className='app-wrapper'>
-        <Header />
-        <Balance />
-        <AddTransaction />
-        <IncomeListed />
-        <ExpenseList />
+    <GlobalContextProvider>
+      <div className='container'>
+        <div className='app-wrapper'>
+          <Header />
+          <Balance />
+          <AddTransaction />
+          <IncomeListed />
+          <ExpenseList />
+        </div>
       </div>
-    </div>
+    </GlobalContextProvider>
   )
 }
 
