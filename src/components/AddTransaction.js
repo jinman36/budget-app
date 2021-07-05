@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import {v4 as uuidv4} from 'uuid'
+import { GlobalContext } from '../context/GlobalState'
 
 const AddTransaction = () => {
+  const {addIncome} = useContext(GlobalContext)
+
   const [income, setIncome] = useState({
     incomeText: '',
     incomeAmount: 0,
@@ -22,8 +25,7 @@ const AddTransaction = () => {
       incomeText,
       incomeAmount: incomeAmount * 1,
     }
-
-    console.log(newIncomeTransaction)
+addIncome(newIncomeTransaction)
   }
 
   return (
