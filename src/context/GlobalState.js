@@ -19,10 +19,18 @@ export const GlobalContext = createContext(initialState);
 export const GlobalContextProvider = ({children}) => {
   const [state, dispatch] = useReducer(AppReducer, initialState)
 
+  //Income
   const addIncome = incomeTransaction => {
     dispatch({
       type: 'ADD_INCOME',
       payload: incomeTransaction,
+    })
+  }
+//Expense
+  const addExpense = expenseTransaction => {
+    dispatch({
+      type: 'ADD_EXPENSE',
+      payload: expenseTransaction,
     })
   }
 
@@ -31,6 +39,7 @@ export const GlobalContextProvider = ({children}) => {
       incomeTransactions: state.incomeTransactions, 
       expenseTransactions: state.expenseTransactions,
       addIncome,
+      addExpense,
     }}>
       {children}
     </GlobalContext.Provider>
