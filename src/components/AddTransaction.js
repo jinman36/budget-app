@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react'
-import {v4 as uuidv4} from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 import { GlobalContext } from '../context/GlobalState'
 
 const AddTransaction = () => {
-  const {addIncome, addExpense} = useContext(GlobalContext)
-  
+  const { addIncome, addExpense } = useContext(GlobalContext)
+
 
   // Expense
   const [expense, setExpense] = useState({
@@ -12,7 +12,7 @@ const AddTransaction = () => {
     expenseAmount: 0,
   })
 
-  const {expenseText, expenseAmount} = expense
+  const { expenseText, expenseAmount } = expense
 
   const onChangeExpense = e => {
     setExpense({ ...expense, [e.target.name]: e.target.value })
@@ -21,17 +21,19 @@ const AddTransaction = () => {
   const onSubmitExpense = e => {
     e.preventDefault();
 
-    const newExpenseTransaction = {
-      id: uuidv4(),
-      expenseText,
-      expenseAmount: expenseAmount * 1,
+    if (expenseText !== "") {
+      const newExpenseTransaction = {
+        id: uuidv4(),
+        expenseText,
+        expenseAmount: expenseAmount * 1,
+      }
+      addExpense(newExpenseTransaction)
+
+      //clear form after input
+      setExpense({ expenseText: '', expenseAmount: 0 })
     }
-addExpense(newExpenseTransaction)
-
-
-//clear form after input
-setExpense({expenseText: '', expenseAmount: 0})
   }
+
 
   // Income
   const [income, setIncome] = useState({
@@ -39,7 +41,7 @@ setExpense({expenseText: '', expenseAmount: 0})
     incomeAmount: 0,
   })
 
-  const {incomeText, incomeAmount} = income
+  const { incomeText, incomeAmount } = income
 
   const onChangeIncome = e => {
     setIncome({ ...income, [e.target.name]: e.target.value })
@@ -48,16 +50,18 @@ setExpense({expenseText: '', expenseAmount: 0})
   const onSubmitIncome = e => {
     e.preventDefault();
 
-    const newIncomeTransaction = {
-      id: uuidv4(),
-      incomeText,
-      incomeAmount: incomeAmount * 1,
+    if (incomeText !== "") {
+      const newIncomeTransaction = {
+        id: uuidv4(),
+        incomeText,
+        incomeAmount: incomeAmount * 1,
+      }
+      addIncome(newIncomeTransaction);
+
+      //clear form after input
+      setIncome({ incomeText: '', incomeAmount: 0 })
+
     }
-addIncome(newIncomeTransaction);
-
-//clear form after input
-setIncome({incomeText: '', incomeAmount: 0})
-
   }
 
   return (
