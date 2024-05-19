@@ -1,3 +1,18 @@
+# Pull Repo
+
+### `git clone https://github.com/jinman36/budget-app.git`
+
+# Move into repo
+
+### `cd budget-app`
+
+### This is an older app - 05.18.2024, I had to run the following commands to ensure that webpack was compatible with the React build
+
+### `npm install webpack@latest webpack-cli@latest`
+### `npm install react-scripts@latest`
+
+# After that it following the template start sequence should get the app running on the local machine.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -6,7 +21,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
